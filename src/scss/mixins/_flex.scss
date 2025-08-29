@@ -1,0 +1,18 @@
+@mixin flex($dir:null, $ai: null, $jc: null, $gap: null) {
+  display: flex;
+
+  @if $dir {
+    flex-direction: $dir;
+  }
+
+  @if $ai {
+    align-items: $ai;
+  }
+
+  @if $jc {
+    justify-content: $jc;
+  }
+  @if $gap {
+    gap: #{$gap}px;
+  }
+}

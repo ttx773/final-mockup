@@ -1,0 +1,166 @@
+.sidebar {
+  transition: z-index .3s;
+  &__wrapper{
+    position: fixed;
+    @include flex($dir:column, $gap:24);
+    padding: 16px;
+    top: 88px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: $white;
+    transition: .3s ease-in-out;
+    transform: translateY(-100%);
+    z-index: 199;
+
+    @include tablet {
+      max-width: 320px;
+      top: 0;
+      transform: translateX(-100%);
+      z-index: 300;
+      box-shadow: -2px 0 4px 0 rgba(69, 79, 126, .02), 16px 0 52px 0 rgba(14, 24, 80, .2);
+    }
+
+    @include desktop {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 320px;
+      z-index: 1;
+      transform: unset;
+      box-shadow: unset;
+    }
+
+  }
+
+  &__header{
+    display: none;
+    height: 58px;
+    @include tablet {
+      @include flex($ai:center, $gap:16);
+      &--logo{
+        flex:1;
+        transition: opacity 0.3s ease;
+      }
+    }
+    @include desktop {
+      @include flex($ai:center, $gap:16);
+      &--logo{
+        flex:1;
+      }
+      #sidebar-close{
+        display: none;
+      }
+    }
+    &--button {
+      position: relative;
+    }
+
+    &--search-wrapper{
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+      z-index: 1;
+    }
+
+    &--search-button{
+      position: relative;
+      z-index: 99;
+
+    }
+
+    &--search-input{
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      height: 0;
+      width: 0;
+      background: $white;
+      border: $border-clr solid 1px;
+      outline: none;
+      border-radius: 30px;
+      transition: width 0.3s ease;
+      &.active-search-input{
+        padding: 12px;
+        height: 100%;
+        width: 230px;
+        opacity: 1;
+        @include desktop {
+          width: 280px;
+        }
+      }
+
+    }
+  }
+
+
+  &__content{
+    ul{
+      @include flex($dir: column, $gap: 24);
+      li{
+        display: block;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        color: $primary-text-clr;
+      }
+    }
+  }
+
+  &__overlay{
+    @include tablet {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      opacity: 0;
+      z-index: 0;
+      transition: opacity .3s, z-index .3s;
+      pointer-events: none;
+    }
+    @include desktop {
+      display: none;
+    }
+  }
+}
+
+body.sidebar-active {
+  .sidebar {
+    &__wrapper{
+      transform: translateY(0);
+      transition: .3s ease-in-out;
+      @include tablet {
+        transform: translateY(0);
+
+    }
+  }
+
+    &__overlay {
+      @include tablet {
+        opacity: .92;
+        z-index: 210;
+      }
+    }
+
+  }
+
+
+
+  .header__right{
+      display: none;
+    @include tablet {
+      display: flex;
+    }
+  }
+  .header__search {
+      display: flex;
+      transition: right .3s, opacity .2s;
+    @include tablet {
+      display: none;
+    }
+  }
+}
+

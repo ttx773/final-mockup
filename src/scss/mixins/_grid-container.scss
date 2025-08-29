@@ -1,0 +1,25 @@
+.grid{
+  display: grid;
+  height: auto;
+  grid-auto-flow: row;
+  grid-auto-rows: minmax(20px, auto);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px 1.87%;
+
+
+  @include tablet {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+}
+
+@mixin grid-col($col){
+    height: 100%;
+    min-width: 0;
+    grid-column-end: span $col;
+    grid-row-end: span 1;
+}

@@ -1,0 +1,182 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+*:focus{
+  outline: 2px solid transparent;
+}
+
+body {
+  overflow-anchor: none;
+  margin: 0;
+  font-family: 'TT Lakes', sans-serif;
+  color: $primary-text-clr;
+  background-color: $background;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  letter-spacing: -0.2px;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+input,
+textarea {
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+button{
+  outline: none;
+  border: none;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: $secondary-text-clr;
+}
+
+input:focus,
+textarea:focus {
+  outline:none;
+}
+
+footer {
+}
+
+main{
+  @include desktop {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
+
+.container{
+  padding: 0 16px;
+  width: 100%;
+  @include tablet{
+    padding: 0 24px;
+  }
+
+  @include desktop {
+    padding: 0 32px;
+  }
+}
+
+
+.button-primary{
+  @include flex($ai:center, $jc:center);
+  width: 40px;
+  height: 40px;
+  background-color: $button-clr;
+  border-radius: 50%;
+}
+
+
+.hidden{
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+
+}
+
+.main-content{
+  @include flex($dir: column, $gap: 24);
+  width: 100%;
+}
+
+
+.container {
+  @include desktop {
+    padding: 0 32px;
+  }
+}
+
+
+.section-title {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: $secondary-text-clr;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #F8F8F8 0%, #FFFFFF 98.61%);
+  padding: 16px;
+  border-top: $border-clr 1px solid;
+  //margin: 16px 0;
+
+  @include tablet{
+    padding: 24px 32px;
+    //margin: 24px 0;
+  }
+
+  @include desktop {
+    padding: 16px 32px;
+    //margin: 24px 0;
+    //margin-bottom: 24px;
+    //border-top: $border-clr 1px solid;
+  }
+}
+
+
+.read-more{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  background: none;
+  margin-top: 24px;
+  svg{
+    width: 24px;
+    height: 24px;
+    transition: .3s transform;
+  }
+  &.active{
+    svg{
+      transform: rotate(180deg);
+    }
+  }
+  @include tablet{
+    display: flex;
+  }
+  @include desktop{
+    display: flex;
+  }
+}

@@ -1,0 +1,12 @@
+@import "vars";
+@import "mixins";
+@import "fonts";
+@import "vendor";
+@import "settings";
+
+@import "../components/sidebar/sidebar";
+@import "../components/header/header";
+@import "../components/heroSection/heroSection";
+@import "../components/brandsSlider/brandsSlider";
+@import "../components/footer/footer";
+

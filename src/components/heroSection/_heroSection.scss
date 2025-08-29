@@ -1,0 +1,80 @@
+.hero {
+  @include flex($dir: column, $gap: 24);
+  &__hedaer {
+
+  }
+
+
+
+  &__container {
+    @include flex($dir: column, $gap: 24);
+
+
+  }
+
+
+  &__title {
+    position: relative;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 40px;
+    letter-spacing: -0.6px;
+    color: $primary-text-clr;
+    padding-left: 12px;
+    border-left: 4px solid $border-clr;
+  }
+
+  &__tabs {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 24px;
+    overflow-x: auto;
+    height: 64px;
+    @include desktop {
+      flex-wrap: wrap;
+      height: fit-content;
+    }
+  }
+
+  &__tab {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+
+    text-wrap: nowrap;
+    color: $secondary-text-clr;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    &--active {
+      padding: 8px 16px;
+      background: $white;
+      border: $border-clr 2px solid;
+      border-radius: 6px;
+    }
+  }
+
+  &__content{
+    @include flex($dir: column, $gap: 24);
+    @include tablet {
+      @include flex($dir: row, $gap: null);
+    }
+    @include desktop {
+      @include flex($dir: row, $gap: null);
+    }
+    &--text{
+      display: flex;
+      width: 48%;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 0.2px;
+    }
+    &--img{
+      display: flex;
+      width: 48%;
+    }
+  }
+}

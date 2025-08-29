@@ -1,0 +1,93 @@
+.repair {
+  &-brands{
+    @include flex($dir: column, $gap: 24);
+  }
+}
+
+.brands {
+  @include flex($dir: column, $gap: 24);
+  &-items{
+    transition: .3s all ease-in-out;
+
+    @include tablet {
+      flex-wrap: wrap;
+      row-gap: 16px;
+      justify-content: space-between;
+      height: 160px !important;
+    }
+    @include desktop {
+      flex-wrap: wrap;
+      row-gap: 16px;
+      justify-content: space-between;
+      height: 160px !important;
+
+    }
+    &.visible {
+      height: 100% !important;
+      transition: .3s all ease-in-out;
+    }
+  }
+  &-item{
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 240px !important; // важно указать !important
+    height: 72px !important;
+    padding: 16px;
+    background: $white;
+    border: $border-clr-secondary 1px solid;
+    border-radius: 6px;
+    box-sizing: border-box;
+
+    &__img{
+
+    }
+
+    &__link{
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+
+.swiper {
+  position: relative;
+  &::before{
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: '';
+    width:64px;
+    height: 100%;
+    background: linear-gradient(270deg, #F8F8F8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
+    z-index: 20;
+    @include tablet {
+      content: none;
+    }
+    @include desktop {
+      content: none;
+    }
+  }
+}
+
+
+.swiper-pagination {
+  position: static !important;
+  margin-top: 16px;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.swiper-pagination-bullet{
+  width: 12px !important;
+  height: 12px !important;
+  background: rgba(221, 221, 221, 1) !important;
+}
+
+.swiper-pagination-bullet-active{
+  background: rgba(181, 182, 188, 1) !important;
+
+}

@@ -1,0 +1,65 @@
+.header{
+  position: relative;
+  @include flex(null, center, space-between);
+  height: 88px;
+  background: $white;
+  z-index: 200;
+
+
+  @include desktop{
+    display: none;
+    background: transparent;
+  }
+
+  &__nav{
+    @include flex(null, center, space-between, 20);
+    @include grid-col(4);
+
+    @include tablet{
+      @include grid-col(8);
+    }
+
+    @include desktop{
+      display: none;
+    }
+  }
+
+  &__center{
+    flex: 1;
+    &--links{
+      display: none;
+    }
+  }
+
+  &__left, &__right{
+    @include flex()
+  }
+
+  &__right{
+    @include flex($gap:16);
+    transition: right .3s, opacity .2s;
+  }
+
+  &__search{
+    display: none;
+  }
+
+  &__link{
+
+  }
+
+  @include tablet{
+    &__center{
+      @include flex($ai:center, $gap:16);
+      .header__logo{
+        flex: 1;
+      }
+      &--links{
+        display: flex;
+        gap: 16px;
+      }
+    }
+  }
+}
+
+
